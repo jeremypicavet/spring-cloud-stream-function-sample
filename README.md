@@ -49,7 +49,7 @@ spring.rabbitmq.password=
 **Analysis :**
 
 
-The backpressure error is thrown in method FluxConcatMap.onNext(T t) :
+The backpressure error is thrown in method **FluxConcatMap.onNext(T t)** :
 
 ```
 			else if (!queue.offer(t)) { // queue.offer(t) returns true !
@@ -59,7 +59,7 @@ The backpressure error is thrown in method FluxConcatMap.onNext(T t) :
 			}
 ```
 
-This cause a call to method AbstractSubscribableChannel.unsubscribe(MessageHandler handler), so subsequent message are not processed.
+This cause a call to method **AbstractSubscribableChannel.unsubscribe(MessageHandler handler)**, so subsequent messages are not processed.
 
 
 
