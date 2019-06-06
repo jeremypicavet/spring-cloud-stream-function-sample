@@ -49,7 +49,7 @@ spring.rabbitmq.password=
 **Analysis :**
 
 
-The backpressure error is thrown in method **FluxConcatMap.onNext(T t)** :
+The backpressure error is thrown in method **FluxConcatMap.ConcatMapImmediate.onNext(T t)** :
 
 ```
 			else if (!queue.offer(t)) { // queue.offer(t) returns true !
