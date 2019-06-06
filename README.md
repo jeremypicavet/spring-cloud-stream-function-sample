@@ -15,7 +15,7 @@ The goal is to convert each line of a csv file into message (published on rabbit
   
 Source used in this sample is an **IntegrationFlow** provided by the project "spring-cloud-starter-stream-source-file".
 
-When dealing with files of few lines, it works as expected, even if an exception is thrown during the conversion, . 
+When dealing with files of few lines, it works as expected, even if an exception is thrown during the conversion. 
 
 As soon as we provide a file containing hundreds of lines, an exception is thrown and the stream stop.
 
