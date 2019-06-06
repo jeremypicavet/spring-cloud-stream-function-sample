@@ -36,7 +36,7 @@ spring.rabbitmq.password=
 ./gradlew bootRun
 ```
 
-**We provide 3 files in this sample under "files/" directory :**
+**We provide 3 files in this sample under "files/" directory (will be scanned by spring-cloud-starter-stream-source-file) :**
 
 * **./files/file_without_conversion_error.csv** : 1000 lines, does not contain conversion error, it will be fully processed as expected
 * **./files/file_with_one_conversion_error.csv** : 1000 lines, contains an error (conversion string -> integer) in the middle of the file, an exception is thrown and causing an unexpecting stop ...
