@@ -19,8 +19,16 @@ When dealing with files of few lines, it works as expected, even if an exception
 
 As soon as we provide a file containing hundreds of lines, an exception is thrown and the stream stop.
 
-
 **Run application :**
+
+First, we need to provide rabbitmq configuration :
+
+spring.rabbitmq.host=
+spring.rabbitmq.port=
+spring.rabbitmq.username=
+spring.rabbitmq.password=
+
+and launch bootRun task :
 
 ./gradlew bootRun
 
