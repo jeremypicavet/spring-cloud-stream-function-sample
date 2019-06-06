@@ -1,0 +1,46 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.5.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'idea'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springCloudVersion', "Greenwich.SR1")
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+
+	implementation 'org.springframework.cloud:spring-cloud-starter-stream-rabbit'
+	implementation 'org.springframework.cloud:spring-cloud-function-context'
+	implementation 'org.springframework.cloud:spring-cloud-stream'
+
+	implementation 'org.springframework.integration:spring-integration-file:5.1.4.RELEASE'
+
+	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-csv'
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8'
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+
+	implementation 'org.springframework.cloud.stream.app:spring-cloud-starter-stream-source-file:2.1.0.RELEASE'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.cloud:spring-cloud-stream-test-support'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+		mavenBom "com.fasterxml.jackson:jackson-bom:2.9.8"
+		//mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+	}
+}
