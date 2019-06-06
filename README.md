@@ -13,7 +13,7 @@ The goal is to convert each line of a csv file into message (published on rabbit
 		};
 	}
   
-Source used in this sample is an IntegrationFlow provided by the project "spring-cloud-starter-stream-source-file".
+Source used in this sample is an **IntegrationFlow** provided by the project "spring-cloud-starter-stream-source-file".
 
 When dealing with files of few lines, it works as expected, even if an exception is thrown during the conversion, . 
 
@@ -24,7 +24,7 @@ As soon as we provide a file containing hundreds of lines (thousand in our sampl
 
 ./gradlew bootRun
 
-We provide 3 files in this sample under "files/" directory : 
+**We provide 3 files in this sample under "files/" directory :**
 
 ./files/file_without_conversion_error.csv : 1000 lines, does not contain conversion error, it will be fully processed as expected
 ./files/file_with_one_conversion_error.csv : 1000 lines, contains an error (conversion string -> integer) in the middle of the file, an exception is thrown and causing an unexpecting stop ...
