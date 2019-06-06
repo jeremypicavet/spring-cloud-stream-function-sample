@@ -59,7 +59,7 @@ The backpressure error is thrown in method **FluxConcatMap.onNext(T t)** :
 			}
 ```
 
-This cause a call to method **AbstractSubscribableChannel.unsubscribe(MessageHandler handler)**, so subsequent messages are not processed.
+This causes a call to method **AbstractSubscribableChannel.unsubscribe(MessageHandler handler)**, so subsequent messages are not processed.
 
 
 
