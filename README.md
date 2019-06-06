@@ -1,6 +1,6 @@
 A simple spring boot project that reproduces issue described here : https://github.com/spring-cloud/spring-cloud-stream/issues/1726
 
-The goal is to convert each line of a csv file into message (published on rabbitmq here) using a converter provided by a spring cloud function :
+The goal is to convert each line of a csv file into message (published on rabbitmq) using a converter provided by a spring cloud function :
 
 	@Bean
 	public Function<String, MyPojo> myConverter(){
