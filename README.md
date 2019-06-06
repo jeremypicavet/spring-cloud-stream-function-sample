@@ -59,7 +59,7 @@ The backpressure error is thrown in method **FluxConcatMap.onNext(T t)** :
 			}
 ```
 
-This causes a call to method **AbstractSubscribableChannel.unsubscribe(MessageHandler handler)**, so subsequent messages are not processed :
+This causes a call to method **AbstractSubscribableChannel.unsubscribe(MessageHandler handler)**, so subsequent messages`in output channel won't be processed :
 
 ```
 2019-06-06 15:11:53.753 ERROR 9896 --- [ask-scheduler-1] o.s.integration.handler.LoggingHandler   : org.springframework.messaging.MessageDeliveryException: Dispatcher has no subscribers for channel 'DemoApp.output'.; nested exception is org.springframework.integration.MessageDispatchingException: Dispatcher has no subscribers, failedMessage=GenericMessage [payload=123;123;123, headers={sequenceNumber=534, file_name=file_with_one_conversion_error.csv, sequenceSize=0, correlationId=619008f3-28f2-5957-52ba-d58ec53d5cb4, file_originalFile=.\files\file_with_one_conversion_error.csv, id=411e1e71-e844-d72a-46d0-8b0c2d2c5d2d, contentType=text/plain, file_relativePath=file_with_one_conversion_error.csv, timestamp=1559826712290}], failedMessage=GenericMessage [payload=123;123;123, headers={sequenceNumber=534, file_name=file_with_one_conversion_error.csv, sequenceSize=0, correlationId=619008f3-28f2-5957-52ba-d58ec53d5cb4, file_originalFile=.\files\file_with_one_conversion_error.csv, id=411e1e71-e844-d72a-46d0-8b0c2d2c5d2d, contentType=text/plain, file_relativePath=file_with_one_conversion_error.csv, timestamp=1559826712290}]
