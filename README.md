@@ -21,14 +21,14 @@ As soon as we provide a file containing hundreds of lines, an exception is throw
 
 **Run application :**
 
-First, we need to provide rabbitmq configuration :
+1. First, we need to provide rabbitmq configuration :
 
-spring.rabbitmq.host=
-spring.rabbitmq.port=
-spring.rabbitmq.username=
-spring.rabbitmq.password=
+`spring.rabbitmq.host=`
+`spring.rabbitmq.port=`
+`spring.rabbitmq.username=`
+`spring.rabbitmq.password=`
 
-and launch bootRun task :
+2. and launch bootRun task :
 
 ./gradlew bootRun
 
