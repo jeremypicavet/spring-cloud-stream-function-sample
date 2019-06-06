@@ -43,7 +43,7 @@ spring.rabbitmq.password=
 * **./files/file_with_few_lines_and_one_conversion_error.csv** : 4 lines, contains an error on the second line, 3 lines will be fully processed, and the line containing the conversion error will be redirected on error channel as expected.
 
 
-Analysis :
+**Analysis :**
 
 
 The backpressure error is thrown in method FluxConcatMap.onNext(T t) :
@@ -54,7 +54,7 @@ The backpressure error is thrown in method FluxConcatMap.onNext(T t) :
 						this.ctx));
 				Operators.onDiscard(t, this.ctx);
 			}
-``
+```
 
 This cause a call to method AbstractSubscribableChannel.unsubscribe(MessageHandler handler), so subsequent message are not processed.
 
