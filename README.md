@@ -13,7 +13,21 @@ The goal is to convert each line of a csv file into message (published on rabbit
 		};
 	}
   
-Source used in this sample is an **IntegrationFlow** provided by the project "spring-cloud-starter-stream-source-file".
+We used our own integration flow (inspired by the project "spring-cloud-starter-stream-source-file") :
+
+    @Bean
+    public IntegrationFlow fileSourceFlow() {
+        FileInboundChannelAdapterSpec messageSourceSpec = Files.inboundAdapter(new File(this.properties.getDirectory()));
+        messageSourceSpec.preventDuplicates(this.properties.isPreventDuplicates());
+
+        IntegrationFlowBuilder flowBuilder = IntegrationFlows.from(messageSourceSpec)
+                .enrichHeaders(Collections.<String, Object>singletonMap(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON))
+                .split(new FileSplitter(false));
+
+        return flowBuilder.channel(source.output()).get();
+    }
+
+
 
 When dealing with files of few lines, it works as expected, even if an exception is thrown during the conversion. 
 
@@ -38,13 +52,13 @@ spring.rabbitmq.password=
 ```
 
 
-**We provide 3 files under "files/" directory :**
+**We provide 3 files under "all_files/" directory :**
 
-* **./files/file_without_conversion_error.csv** : 1000 lines, does not contain conversion error, it will be fully processed as expected
-* **./files/file_with_one_conversion_error.csv** : 1000 lines, contains an error (conversion string -> integer) on the 500th line, an exception is thrown and causing an unexpecting stop ...
-* **./files/file_with_few_lines_and_one_conversion_error.csv** : 4 lines, contains an error on the second line, 3 lines will be fully processed, and the line containing the conversion error will be redirected on error channel as expected.
+* **file_without_conversion_error.csv** : 1000 lines, does not contain conversion error, it will be fully processed as expected
+* **file_with_one_conversion_error.csv** : 1000 lines, contains an error (conversion string -> integer) on the 500th line, an exception is thrown and causing an unexpecting stop ...
+* **file_with_few_lines_and_one_conversion_error.csv** : 4 lines, contains an error on the second line, 3 lines will be fully processed, and the line containing the conversion error will be redirected on error channel as expected.
 
-
+**==> Move one of these files under "files/" directory for processing**
 
 **Analysis :**
 
