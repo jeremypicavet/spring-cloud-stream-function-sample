@@ -33,6 +33,14 @@ When dealing with files of few lines, it works as expected, even if an exception
 
 As soon as we provide a file containing hundreds of lines, the stream stop if the file contains a conversion error.
 
+**We provide 3 files under "all_files/" directory :**
+
+* **file_without_conversion_error.csv** : 1000 lines, does not contain conversion error, it will be fully processed as expected
+* **file_with_one_conversion_error.csv** : 1000 lines, contains an error (conversion string -> integer) on the 500th line, an exception is thrown and causing an unexpecting stop ...
+* **file_with_few_lines_and_one_conversion_error.csv** : 4 lines, contains an error on the second line, 3 lines will be fully processed, and the line containing the conversion error will be redirected on error channel as expected.
+
+**==> Move one of these files under "files/" directory for processing**
+
 
 **Run application :**
 
@@ -50,15 +58,6 @@ spring.rabbitmq.password=
 ```
 ./gradlew bootRun
 ```
-
-
-**We provide 3 files under "all_files/" directory :**
-
-* **file_without_conversion_error.csv** : 1000 lines, does not contain conversion error, it will be fully processed as expected
-* **file_with_one_conversion_error.csv** : 1000 lines, contains an error (conversion string -> integer) on the 500th line, an exception is thrown and causing an unexpecting stop ...
-* **file_with_few_lines_and_one_conversion_error.csv** : 4 lines, contains an error on the second line, 3 lines will be fully processed, and the line containing the conversion error will be redirected on error channel as expected.
-
-**==> Move one of these files under "files/" directory for processing**
 
 **Analysis :**
 
