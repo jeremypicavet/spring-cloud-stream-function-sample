@@ -125,7 +125,7 @@ Caused by: org.springframework.integration.MessageDispatchingException: Dispatch
         at org.springframework.integration.dispatcher.UnicastingDispatcher.dispatch(UnicastingDispatcher.java:105)
         at org.springframework.integration.channel.AbstractSubscribableChannel.doSend(AbstractSubscribableChannel.java:73)
         ... 56 more
-``
+```
 
 We also notice that when the conservion error is thrown no more messages are processed by the AmqpOutboundEndPoint, and backpressure is raised on the 33th message following the conversion error.
 
