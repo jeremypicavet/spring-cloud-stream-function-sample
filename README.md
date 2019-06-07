@@ -140,7 +140,7 @@ Caused by: org.springframework.integration.MessageDispatchingException: Dispatch
         ... 56 more
 ```
 
-Stacktrace snapshot of the unsubscribe call :
+**Stacktrace snapshot of the unsubscribe call :**
 
 ```
 "task-scheduler-1@8024" prio=5 tid=0x15 nid=NA runnable
