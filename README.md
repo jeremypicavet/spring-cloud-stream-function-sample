@@ -17,7 +17,7 @@ Source used in this sample is an **IntegrationFlow** provided by the project "sp
 
 When dealing with files of few lines, it works as expected, even if an exception is thrown during the conversion. 
 
-As soon as we provide a file containing hundreds of lines, an exception is thrown and the stream stop.
+As soon as we provide a file containing hundreds of lines, the stream stop if the file contains a conversion error.
 
 
 **Run application :**
