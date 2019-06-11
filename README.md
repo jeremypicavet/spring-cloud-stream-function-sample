@@ -31,7 +31,7 @@ We used our own integration flow (inspired by the project "spring-cloud-starter-
 
 When dealing with files of few lines, it works as expected, even if an exception is thrown during the conversion (Function). 
 
-As soon as we provide a file containing hundreds of lines, the stream stop if the file contains a conversion error.
+As soon as we provide a file containing hundreds of lines, the stream stop if the file contains a conversion error, while it is processed completely without it.
 
 **We provide 3 test files under "all_files/" directory :**
 
