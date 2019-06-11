@@ -29,7 +29,7 @@ We used our own integration flow (inspired by the project "spring-cloud-starter-
 
 
 
-When dealing with files of few lines, it works as expected, even if an exception is thrown during the conversion. 
+When dealing with files of few lines, it works as expected, even if an exception is thrown during the conversion (Function). 
 
 As soon as we provide a file containing hundreds of lines, the stream stop if the file contains a conversion error.
 
